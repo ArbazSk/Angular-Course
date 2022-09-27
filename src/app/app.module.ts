@@ -10,6 +10,7 @@ import { SucessAlertComponent } from './assignment1/sucess-alert/sucess-alert.co
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { Assignment2Component } from './assignment2/assignment2.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
     WarningAlertComponent,
     SucessAlertComponent,
     SideBarComponent,
-    HomeComponent
+    HomeComponent,
+    Assignment2Component
   ],
   imports: [
     BrowserModule,
