@@ -20,6 +20,10 @@ import { RecipeDetailComponent } from './project1/recipes/recipe-detail/recipe-d
 import { RecipeItemComponent } from './project1/recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './project1/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './project1/shopping-list/shopping-edit/shopping-edit.component';
+import { Assignment4Component } from './assignment4/assignment4.component';
+import { GameControlComponent } from './assignment4/game-control/game-control.component';
+import { OddComponent } from './assignment4/odd/odd.component';
+import { EvenComponent } from './assignment4/even/even.component';
 
 
 @NgModule({
@@ -40,6 +44,10 @@ import { ShoppingEditComponent } from './project1/shopping-list/shopping-edit/sh
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
+    Assignment4Component,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent,
   ],
   imports: [
     BrowserModule,
