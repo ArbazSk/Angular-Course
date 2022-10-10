@@ -12,6 +12,14 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Assignment2Component } from './assignment2/assignment2.component';
 import { Assignment3Component } from './assignment3/assignment3.component';
+import { Project1Component } from './project1/project1.component';
+import { HeaderComponent } from './project1/header/header.component';
+import { RecipesComponent } from './project1/recipes/recipes.component';
+import { RecipeListComponent } from './project1/recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './project1/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './project1/recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './project1/shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './project1/shopping-list/shopping-edit/shopping-edit.component';
 
 
 @NgModule({
@@ -23,7 +31,15 @@ import { Assignment3Component } from './assignment3/assignment3.component';
     SideBarComponent,
     HomeComponent,
     Assignment2Component,
-    Assignment3Component
+    Assignment3Component,
+    Project1Component,
+    HeaderComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
   ],
   imports: [
     BrowserModule,
