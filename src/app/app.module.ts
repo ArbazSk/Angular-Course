@@ -28,6 +28,9 @@ import { DirectivesComponent } from './directives/directives.component';
 import { BasicDirective } from './directives/basic-highlight.directive';
 import { BetterHighlighterDirective } from './directives/better-highlight.directive';
 import { DropDownDirective } from './project1/shared/dropdown.directive';
+import { Assignment5Component } from './assignment5/assignment5.component';
+import { InactiveUsersComponent } from './assignment5/inactive-users/inactive-users.component';
+import { ActiveUsersComponent } from './assignment5/active-users/active-users.component';
 
 
 @NgModule({
@@ -55,7 +58,10 @@ import { DropDownDirective } from './project1/shared/dropdown.directive';
     DirectivesComponent,
     BasicDirective,
     BetterHighlighterDirective,
-    DropDownDirective
+    DropDownDirective,
+    Assignment5Component,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,
