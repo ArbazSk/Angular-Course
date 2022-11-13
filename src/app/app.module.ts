@@ -24,6 +24,8 @@ import { Assignment4Component } from './assignment4/assignment4.component';
 import { GameControlComponent } from './assignment4/game-control/game-control.component';
 import { OddComponent } from './assignment4/odd/odd.component';
 import { EvenComponent } from './assignment4/even/even.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { BasicDirective } from './directives/basic-highlight.directive';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { EvenComponent } from './assignment4/even/even.component';
     GameControlComponent,
     OddComponent,
     EvenComponent,
+    DirectivesComponent,
+    BasicDirective,
   ],
   imports: [
     BrowserModule,
