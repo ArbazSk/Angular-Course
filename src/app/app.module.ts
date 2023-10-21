@@ -31,6 +31,7 @@ import { DropDownDirective } from './project1/shared/dropdown.directive';
 import { Assignment5Component } from './assignment5/assignment5.component';
 import { InactiveUsersComponent } from './assignment5/inactive-users/inactive-users.component';
 import { ActiveUsersComponent } from './assignment5/active-users/active-users.component';
+import { ShoppingListService } from './project1/shopping-list/shopping-list.service';
 
 
 @NgModule({
@@ -68,7 +69,7 @@ import { ActiveUsersComponent } from './assignment5/active-users/active-users.co
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
