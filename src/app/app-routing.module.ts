@@ -12,6 +12,8 @@ import { RoutingBasic } from "./routing-basic/routing-basic.component";
 import { HomeComponentR } from "./routing-basic/home/home.component";
 import { ServersComponent } from "./routing-basic/servers/servers.component";
 import { UsersComponent } from "./routing-basic/users/users.component";
+import { RouteNotFoundComponent } from "./route-not-found/route-not-found.component";
+import { UserComponent } from "./routing-basic/users/user/user.component";
 
 
 const routes: Routes = [
@@ -30,8 +32,10 @@ const routes: Routes = [
       { path: 'home', component: HomeComponentR },
       { path: 'servers', component: ServersComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'users/:id/:name', component: UserComponent },
     ]
-  }
+  },
+  { path: "**", component: RouteNotFoundComponent }
 ];
 
 @NgModule({
