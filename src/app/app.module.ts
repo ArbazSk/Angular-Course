@@ -32,6 +32,13 @@ import { Assignment5Component } from './assignment5/assignment5.component';
 import { InactiveUsersComponent } from './assignment5/inactive-users/inactive-users.component';
 import { ActiveUsersComponent } from './assignment5/active-users/active-users.component';
 import { ShoppingListService } from './project1/shopping-list/shopping-list.service';
+import { RoutingBasic } from './routing-basic/routing-basic.component';
+import { HomeComponentR } from './routing-basic/home/home.component';
+import { ServersComponent } from './routing-basic/servers/servers.component';
+import { EditServerComponent } from './routing-basic/servers/edit-server/edit-server.component';
+import { ServerComponent } from './routing-basic/servers/server/server.component';
+import { UsersComponent } from './routing-basic/users/users.component';
+import { UserComponent } from './routing-basic/users/user/user.component';
 
 
 @NgModule({
@@ -62,7 +69,15 @@ import { ShoppingListService } from './project1/shopping-list/shopping-list.serv
     DropDownDirective,
     Assignment5Component,
     ActiveUsersComponent,
-    InactiveUsersComponent
+    InactiveUsersComponent,
+    //Routing Basic Components
+    RoutingBasic,
+    HomeComponentR,
+    ServersComponent,
+    EditServerComponent,
+    ServerComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

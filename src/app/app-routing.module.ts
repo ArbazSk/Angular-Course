@@ -8,6 +8,10 @@ import { Assignment5Component } from "./assignment5/assignment5.component";
 import { DirectivesComponent } from "./directives/directives.component";
 import { HomeComponent } from "./home/home.component";
 import { Project1Component } from "./project1/project1.component";
+import { RoutingBasic } from "./routing-basic/routing-basic.component";
+import { HomeComponentR } from "./routing-basic/home/home.component";
+import { ServersComponent } from "./routing-basic/servers/servers.component";
+import { UsersComponent } from "./routing-basic/users/users.component";
 
 
 const routes: Routes = [
@@ -15,14 +19,23 @@ const routes: Routes = [
   { path: 'assignment1', component: Assignment1Component },
   { path: 'assignment2', component: Assignment2Component },
   { path: 'assignment3', component: Assignment3Component },
-  { path : 'project1', component: Project1Component },
-  { path : 'assignment4', component: Assignment4Component},
-  { path : 'directives', component : DirectivesComponent},
-  { path : 'assignment5', component : Assignment5Component}
+  { path: 'project1', component: Project1Component },
+  { path: 'assignment4', component: Assignment4Component },
+  { path: 'directives', component: DirectivesComponent },
+  { path: 'assignment5', component: Assignment5Component },
+  {
+    path: 'routing-basic', component: RoutingBasic,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponentR },
+      { path: 'servers', component: ServersComponent },
+      { path: 'users', component: UsersComponent },
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports : [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
