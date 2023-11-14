@@ -16,8 +16,8 @@ export class HomeComponentR implements OnInit {
     console.log("Activated Route :: ", this.route);
   }
 
-  onClick() {
-    this.router.navigate(['/routing-basic/servers']);
+  onClick(id: number) {
+    this.router.navigate(['/routing-basic/servers', id, 'edit'], { queryParams: { allowEdit: '1', save: 'no' }, fragment: 'loading' });
 
   }
 }

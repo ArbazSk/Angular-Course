@@ -14,6 +14,7 @@ import { ServersComponent } from "./routing-basic/servers/servers.component";
 import { UsersComponent } from "./routing-basic/users/users.component";
 import { RouteNotFoundComponent } from "./route-not-found/route-not-found.component";
 import { UserComponent } from "./routing-basic/users/user/user.component";
+import { EditServerComponent } from "./routing-basic/servers/edit-server/edit-server.component";
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'servers', component: ServersComponent },
       { path: 'users', component: UsersComponent },
       { path: 'users/:id/:name', component: UserComponent },
+      { path: 'servers/:id/edit', component: EditServerComponent },
     ]
   },
   { path: "**", component: RouteNotFoundComponent }
