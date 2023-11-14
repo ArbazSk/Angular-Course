@@ -32,11 +32,19 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponentR },
-      { path: 'servers', component: ServersComponent },
-      { path: 'servers/:id', component: ServerComponent },
-      { path: 'servers/:id/edit', component: EditServerComponent },
-      { path: 'users', component: UsersComponent },
-      { path: 'users/:id/:name', component: UserComponent },
+      {
+        path: 'servers', component: ServersComponent,
+        children: [
+          { path: ':id', component: ServerComponent },
+          { path: ':id/edit', component: EditServerComponent },
+        ]
+      },
+      {
+        path: 'users', component: UsersComponent,
+        children: [
+          { path: ':id/:name', component: UserComponent },
+        ]
+      },
     ]
   },
   { path: "**", component: RouteNotFoundComponent }

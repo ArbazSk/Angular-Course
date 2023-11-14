@@ -18,6 +18,14 @@ export class EditServerComponent implements OnInit {
 
   ngOnInit() {
     // static snapshot wont change the the data changes in URL
+    let id = +this.route.snapshot.params['id'];
+
+    this.route.params.subscribe(p => {
+      id = +p['id'];
+      console.log("p :: ", p)
+      this.server = this.serversService.getServer(id);
+    })
+
     const queryParam = this.route.snapshot.queryParams;
     const fragment = this.route.snapshot.fragment;
     console.log("Static Query param :: ", queryParam);
@@ -27,7 +35,7 @@ export class EditServerComponent implements OnInit {
     this.route.queryParams.subscribe((param: Params) => console.log("Query param :: ", param));
     this.route.fragment.subscribe(fragment => console.log("fragement :: ", fragment));
 
-    this.server = this.serversService.getServer(1);
+    this.server = this.serversService.getServer(id);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
