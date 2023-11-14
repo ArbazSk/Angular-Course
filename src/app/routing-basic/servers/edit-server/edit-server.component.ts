@@ -12,6 +12,7 @@ export class EditServerComponent implements OnInit {
   server: { id: number, name: string, status: string };
   serverName = '';
   serverStatus = '';
+  allowEdit = false;
 
   constructor(private serversService: ServersService,
     private route: ActivatedRoute) { }
@@ -32,7 +33,10 @@ export class EditServerComponent implements OnInit {
     console.log("static fragement :: ", fragment);
 
     // dynamci snapshot it will give the changed data from URL
-    this.route.queryParams.subscribe((param: Params) => console.log("Query param :: ", param));
+    this.route.queryParams.subscribe((param: Params) => {
+      console.log("Query param :: ", param);
+      this.allowEdit = param['allowEdit'] === '1' ? true : false;
+    });
     this.route.fragment.subscribe(fragment => console.log("fragement :: ", fragment));
 
     this.server = this.serversService.getServer(id);
