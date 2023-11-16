@@ -16,6 +16,7 @@ import { RouteNotFoundComponent } from "./route-not-found/route-not-found.compon
 import { UserComponent } from "./routing-basic/users/user/user.component";
 import { EditServerComponent } from "./routing-basic/servers/edit-server/edit-server.component";
 import { ServerComponent } from "./routing-basic/servers/server/server.component";
+import { AuthGuardGuard } from "./auth.guard";
 
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
         children: [
           { path: ':id', component: ServerComponent },
           { path: ':id/edit', component: EditServerComponent },
-        ]
+        ],
+        canActivate: [AuthGuardGuard]
       },
       {
         path: 'users', component: UsersComponent,
