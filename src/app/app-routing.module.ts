@@ -39,7 +39,8 @@ const routes: Routes = [
           { path: ':id', component: ServerComponent },
           { path: ':id/edit', component: EditServerComponent },
         ],
-        canActivate: [AuthGuardGuard]
+        // canActivate: [AuthGuardGuard]
+        canActivateChild: [AuthGuardGuard]
       },
       {
         path: 'users', component: UsersComponent,
