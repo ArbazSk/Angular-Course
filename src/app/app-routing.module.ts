@@ -17,6 +17,7 @@ import { UserComponent } from "./routing-basic/users/user/user.component";
 import { EditServerComponent } from "./routing-basic/servers/edit-server/edit-server.component";
 import { ServerComponent } from "./routing-basic/servers/server/server.component";
 import { AuthGuardGuard } from "./auth.guard";
+import { canDeactivateGuard } from "./routing-basic/servers/edit-server/can-deactivate.guard";
 
 
 const routes: Routes = [
@@ -37,7 +38,7 @@ const routes: Routes = [
         path: 'servers', component: ServersComponent,
         children: [
           { path: ':id', component: ServerComponent },
-          { path: ':id/edit', component: EditServerComponent },
+          { path: ':id/edit', component: EditServerComponent, canDeactivate: [canDeactivateGuard] },
         ],
         // canActivate: [AuthGuardGuard]
         canActivateChild: [AuthGuardGuard]
