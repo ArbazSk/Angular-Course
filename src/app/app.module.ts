@@ -42,6 +42,7 @@ import { UserComponent } from './routing-basic/users/user/user.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
 import { ErrorPageComponent } from './routing-basic/error-page/error-page.component';
 import { RecipeStartComponent } from './project1/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './project1/recipes/recipe-edit/recipe-edit.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { RecipeStartComponent } from './project1/recipes/recipe-start/recipe-sta
     UserComponent,
     RouteNotFoundComponent,
     ErrorPageComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
