@@ -20,6 +20,8 @@ import { AuthGuardGuard } from "./auth.guard";
 import { canDeactivateGuard } from "./routing-basic/servers/edit-server/can-deactivate.guard";
 import { ErrorPageComponent } from "./routing-basic/error-page/error-page.component";
 import { ServerResolver } from "./routing-basic/servers/server/server-resolver.service";
+import { RecipesComponent } from "./project1/recipes/recipes.component";
+import { ShoppingListComponent } from "./project1/shopping-list/shopping-list.component";
 
 
 const routes: Routes = [
@@ -27,7 +29,14 @@ const routes: Routes = [
   { path: 'assignment1', component: Assignment1Component },
   { path: 'assignment2', component: Assignment2Component },
   { path: 'assignment3', component: Assignment3Component },
-  { path: 'project1', component: Project1Component },
+  {
+    path: 'project1', component: Project1Component,
+    children: [
+      { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+      { path: 'recipes', component: RecipesComponent },
+      { path: 'shopping-list', component: ShoppingListComponent }
+    ]
+  },
   { path: 'assignment4', component: Assignment4Component },
   { path: 'directives', component: DirectivesComponent },
   { path: 'assignment5', component: Assignment5Component },
