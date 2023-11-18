@@ -17,9 +17,13 @@
                     <!-- <span class="caret"></span> -->
                 </button>
                 <ul class="dropdown-menu" appDropDown>
-                    <li><a class="dropdown-item" (click)="onToShoppingList()">Add Ingredients To Shopping List</a></li>
-                    <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-                    <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+                    <li>
+                        <a class="dropdown-item cursor-pointer" (click)="onToShoppingList()">
+                            Add Ingredients To Shopping List
+                        </a>
+                    </li>
+                    <li><a class="dropdown-item cursor-pointer">Edit Recipe</a></li>
+                    <li><a class="dropdown-item cursor-pointer">Delete Recipe</a></li>
                 </ul>
             </div>
         </div>
