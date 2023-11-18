@@ -22,6 +22,8 @@ import { ErrorPageComponent } from "./routing-basic/error-page/error-page.compon
 import { ServerResolver } from "./routing-basic/servers/server/server-resolver.service";
 import { RecipesComponent } from "./project1/recipes/recipes.component";
 import { ShoppingListComponent } from "./project1/shopping-list/shopping-list.component";
+import { RecipeDetailComponent } from "./project1/recipes/recipe-detail/recipe-detail.component";
+import { RecipeStartComponent } from "./project1/recipes/recipe-start/recipe-start.component";
 
 
 const routes: Routes = [
@@ -33,7 +35,13 @@ const routes: Routes = [
     path: 'project1', component: Project1Component,
     children: [
       { path: '', redirectTo: 'recipes', pathMatch: 'full' },
-      { path: 'recipes', component: RecipesComponent },
+      {
+        path: 'recipes', component: RecipesComponent,
+        children: [
+          { path: '', component: RecipeStartComponent },
+          { path: ':id', component: RecipeDetailComponent },
+        ]
+      },
       { path: 'shopping-list', component: ShoppingListComponent }
     ]
   },
