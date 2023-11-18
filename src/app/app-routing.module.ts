@@ -18,6 +18,7 @@ import { EditServerComponent } from "./routing-basic/servers/edit-server/edit-se
 import { ServerComponent } from "./routing-basic/servers/server/server.component";
 import { AuthGuardGuard } from "./auth.guard";
 import { canDeactivateGuard } from "./routing-basic/servers/edit-server/can-deactivate.guard";
+import { ErrorPageComponent } from "./routing-basic/error-page/error-page.component";
 
 
 const routes: Routes = [
@@ -51,7 +52,9 @@ const routes: Routes = [
       },
     ]
   },
-  { path: "**", component: RouteNotFoundComponent }
+  // { path: "/not-fount", component: RouteNotFoundComponent },
+  { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page Not Found!' } },
+  { path: "**", redirectTo: '/not-found' }
 ];
 
 @NgModule({

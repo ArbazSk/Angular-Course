@@ -40,6 +40,7 @@ import { ServerComponent } from './routing-basic/servers/server/server.component
 import { UsersComponent } from './routing-basic/users/users.component';
 import { UserComponent } from './routing-basic/users/user/user.component';
 import { RouteNotFoundComponent } from './route-not-found/route-not-found.component';
+import { ErrorPageComponent } from './routing-basic/error-page/error-page.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { RouteNotFoundComponent } from './route-not-found/route-not-found.compon
     ServerComponent,
     UsersComponent,
     UserComponent,
-    RouteNotFoundComponent
+    RouteNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
