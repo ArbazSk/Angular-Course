@@ -25,6 +25,9 @@ import { ShoppingListComponent } from "./project1/shopping-list/shopping-list.co
 import { RecipeDetailComponent } from "./project1/recipes/recipe-detail/recipe-detail.component";
 import { RecipeStartComponent } from "./project1/recipes/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./project1/recipes/recipe-edit/recipe-edit.component";
+import { ObsComponent } from "./observables/obs.component";
+import { HomeObsComponents } from "./observables/home/home.component";
+import { UserObsComponents } from "./observables/user/user.component";
 
 
 const routes: Routes = [
@@ -73,8 +76,16 @@ const routes: Routes = [
       },
     ]
   },
-  // { path: "/not-fount", component: RouteNotFoundComponent },
-  { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page Not Found!' } },
+  {
+    path: 'observables', component: ObsComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeObsComponents },
+      { path: 'user/:id', component: UserObsComponents }
+    ]
+  },
+  { path: "not-found", component: RouteNotFoundComponent },
+  // { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page Not Found!' } },
   { path: "**", redirectTo: '/not-found' }
 ];
 

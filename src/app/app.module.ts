@@ -43,6 +43,9 @@ import { RouteNotFoundComponent } from './route-not-found/route-not-found.compon
 import { ErrorPageComponent } from './routing-basic/error-page/error-page.component';
 import { RecipeStartComponent } from './project1/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './project1/recipes/recipe-edit/recipe-edit.component';
+import { ObsComponent } from './observables/obs.component';
+import { HomeObsComponents } from './observables/home/home.component';
+import { UserObsComponents } from './observables/user/user.component';
 
 
 @NgModule({
@@ -85,7 +88,11 @@ import { RecipeEditComponent } from './project1/recipes/recipe-edit/recipe-edit.
     RouteNotFoundComponent,
     ErrorPageComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    //observabels component
+    ObsComponent,
+    HomeObsComponents,
+    UserObsComponents,
   ],
   imports: [
     BrowserModule,
