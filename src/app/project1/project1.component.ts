@@ -6,14 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project1.component.css']
 })
 export class Project1Component implements OnInit {
-  loadedFeature = 'recipe';
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  onNavigate(feature: string){
-    this.loadedFeature = feature;
-  }
-
+  ngOnInit(): void { }
 }
