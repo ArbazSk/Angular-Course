@@ -1,13 +1,10 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 
 @Injectable()
 export class RecipeService {
-
-    private recipeSelected = new EventEmitter<Recipe>();
-
     private recipes: Recipe[] = [
         new Recipe("Chicken Rice", "South African Food",
             "https://tinybeans.com/wp-content/uploads/2021/10/african-food-recipes.png",
@@ -31,10 +28,6 @@ export class RecipeService {
 
     getRecipe(index: number) {
         return this.recipes[index];
-    }
-
-    getSelectedRecipeEmitter() {
-        return this.recipeSelected;
     }
 
     public addIngredientsToShoppingList(ingredients: Ingredient[]) {
