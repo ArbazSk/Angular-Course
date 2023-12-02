@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="secret">Secret Questions</label>
-                    <select id="secret" class="form-control" name="secret" ngModel>
+                    <select id="secret" class="form-control" name="secret" [ngModel]="'pet'">
                         <option value="pet">Your first Pet?</option>
                         <option value="teacher">Your first teacher?</option>
                     </select>
