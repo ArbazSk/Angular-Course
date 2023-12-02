@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicFormComponent implements OnInit {
   @ViewChild('form') signUpForm: NgForm;
+  answer = '';
   constructor() { }
   ngOnInit(): void { }
 

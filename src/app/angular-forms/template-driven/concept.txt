@@ -25,3 +25,8 @@ Form State
 Form Validation
 whenever the form input state is changed then its property is also updated in the form object or control
 it also add classes in the form control
+
+Different ngModel type
+1. ngModel (without single and 2-way binding) -> it tell the angulat that the input is a form control
+2. [ngModel] -> can use it to set default data in form control (1-way binding)
+3. [(ngModel)] -> can use it for 2-way binding
