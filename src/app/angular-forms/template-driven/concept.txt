@@ -8,8 +8,10 @@ In Angular there are 2 types of Form
 * by default whenever we have a form in html angular creates an JS Object for us. But its values are empty by default
 * we need to add the properties to its.
 * inputs are not registed in the object by defaults we need to tell the angular about the inputs
-* we add "name" attribute of html and add "ngModel" directive of angular to tell that the inputs belong to the forms
 
+* we add "name" attribute of html and add "ngModel" directive of angular to tell that the inputs belong to the forms
+* By default of submiting form html form try to send the data which is default. Angular uses this and added 
+    ngSubmit event listenser on form element in that method we can pass the form element reference to it which will contains the form data.
 
 2. Reactive form
 * we create form in ts and angular add the form in DOM
