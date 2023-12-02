@@ -17,3 +17,11 @@ Template Driven Forms in Angular
 * we add "name" attribute of html and add "ngModel" directive of angular to tell that the inputs belong to the forms
 * By default of submiting form html form try to send the data which is default. Angular uses this and added 
     ngSubmit event listenser on form element in that method we can pass the form element reference to it which will contains the form data.
+
+Form State
+1. touched - when we click on the input and leave then it is touched
+2. dirty - when we change the values of an input
+
+Form Validation
+whenever the form input state is changed then its property is also updated in the form object or control
+it also add classes in the form control
