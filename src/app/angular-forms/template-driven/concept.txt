@@ -30,3 +30,8 @@ Different ngModel type
 1. ngModel (without single and 2-way binding) -> it tell the angulat that the input is a form control
 2. [ngModel] -> can use it to set default data in form control (1-way binding)
 3. [(ngModel)] -> can use it for 2-way binding
+
+Form Group
+ngModelGroup can be used to group the form control 
+refer the html for the code
+you will get the form group as the key in form object which will contains the form controls object
