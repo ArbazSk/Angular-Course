@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./basic-form.component.css']
 })
 export class BasicFormComponent implements OnInit {
+  @ViewChild('form') signUpForm: NgForm;
   constructor() { }
   ngOnInit(): void { }
 
@@ -14,8 +15,12 @@ export class BasicFormComponent implements OnInit {
     const suggestedName = 'Superuser';
   }
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+  // onSubmit(form: NgForm) {
+  //   console.log(form);
+  // }
+
+  onSubmit() {
+    console.log(this.signUpForm);
   }
 
 }
