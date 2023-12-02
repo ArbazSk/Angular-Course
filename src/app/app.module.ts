@@ -46,6 +46,7 @@ import { RecipeEditComponent } from './project1/recipes/recipe-edit/recipe-edit.
 import { ObsComponent } from './observables/obs.component';
 import { HomeObsComponents } from './observables/home/home.component';
 import { UserObsComponents } from './observables/user/user.component';
+import { BasicFormComponent } from './angular-forms/template-driven/basic-form/basic-form.component';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { UserObsComponents } from './observables/user/user.component';
     ObsComponent,
     HomeObsComponents,
     UserObsComponents,
+    BasicFormComponent,
   ],
   imports: [
     BrowserModule,

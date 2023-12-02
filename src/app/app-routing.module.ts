@@ -28,6 +28,7 @@ import { RecipeEditComponent } from "./project1/recipes/recipe-edit/recipe-edit.
 import { ObsComponent } from "./observables/obs.component";
 import { HomeObsComponents } from "./observables/home/home.component";
 import { UserObsComponents } from "./observables/user/user.component";
+import { BasicFormComponent } from "./angular-forms/template-driven/basic-form/basic-form.component";
 
 
 const routes: Routes = [
@@ -86,6 +87,7 @@ const routes: Routes = [
   },
   { path: "not-found", component: RouteNotFoundComponent },
   // { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page Not Found!' } },
+  { path: "forms", component: BasicFormComponent },
   { path: "**", redirectTo: '/not-found' }
 ];
 
