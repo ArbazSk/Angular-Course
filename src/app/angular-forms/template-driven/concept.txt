@@ -1,0 +1,15 @@
+In Angular there are 2 types of Form
+1. Template driven
+2. Reactive driven
+
+1. Template driven
+* it is an static form 
+* we write the code in html and connect it with ts with some directives
+* by default whenever we have a form in html angular creates an JS Object for us. But its values are empty by default
+* we need to add the properties to its.
+* inputs are not registed in the object by defaults we need to tell the angular about the inputs
+* we add "name" attribute of html and add "ngModel" directive of angular to tell that the inputs belong to the forms
+
+
+2. Reactive form
+* we create form in ts and angular add the form in DOM
