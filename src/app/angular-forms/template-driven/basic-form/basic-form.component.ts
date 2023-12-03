@@ -54,6 +54,8 @@ export class BasicFormComponent implements OnInit {
     this.user_data.secret = this.signUpForm.value.secret;
     this.user_data.answer = this.signUpForm.value.questionAnswered;
     this.user_data.gender = this.signUpForm.value.gender;
+
+    this.signUpForm.reset();
   }
 
 }
