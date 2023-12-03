@@ -47,6 +47,7 @@ import { ObsComponent } from './observables/obs.component';
 import { HomeObsComponents } from './observables/home/home.component';
 import { UserObsComponents } from './observables/user/user.component';
 import { BasicFormComponent } from './angular-forms/template-driven/basic-form/basic-form.component';
+import { Assignment6Component } from './assignment6/assignment6.component';
 
 
 @NgModule({
@@ -95,6 +96,7 @@ import { BasicFormComponent } from './angular-forms/template-driven/basic-form/b
     HomeObsComponents,
     UserObsComponents,
     BasicFormComponent,
+    Assignment6Component,
   ],
   imports: [
     BrowserModule,

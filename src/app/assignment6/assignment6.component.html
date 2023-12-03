@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Assignment 6 : Template Driven Form</h1>
+            <p>Add a Form with the following Inputs (and Validators)</p>
+            <ol>
+                <li>
+                    Mail address (should not be empty and should be an email address)
+                </li>
+                <li>
+                    A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced",
+                    "Pro")
+                    Set "Advanced" as Default
+                </li>
+                <li>A Password field (should not be empty)</li>
+                <li>A Submit Button </li>
+                <li>Display a warning message if the Form is invalid AND was touched. Display a warning message below
+                    each input if it's invalid.</li>
+                <li>Upon submitting the form, you should simply print the Value of the Form to the Console.</li>
+                <li>Optionally, display it in your template.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Solutions</h1>
+            <div class="row">
+                <div class="col-9">
+                    <div class="w-50">
+                        <form (ngSubmit)="onSubmit()" #form="ngForm">
+                            <div class="form-group mb-4">
+                                <label>Email: </label>
+                                <input type="email" class="form-control mt-2" name="email" email ngModel required
+                                    #email="ngModel">
+                                <p *ngIf="!email.valid && email.touched" class="text-warning">Email cannot be Empty</p>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label>Subscriptions : </label>
+                                <select name="subscription" class="form-select mt-2" [ngModel]="'advanced'">
+                                    <option value="basic">Basic</option>
+                                    <option value="advanced">Advanced</option>
+                                    <option value="pro">Pro</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label>Password: </label>
+                                <input type="password" class="form-control mt-2" name="password" ngModel required
+                                    #pass="ngModel">
+                                <p *ngIf="!pass.valid && pass.touched" class="text-warning">Password cannot be Empty</p>
+                            </div>
+                            <div class="form-group mb-4">
+                                <button type="submit" class="btn btn-primary"
+                                    [disabled]="!form.form.valid">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h2>Your Data</h2>
+                    <p>Email : {{ userData.email}} </p>
+                    <p>Password : {{ userData.password}} </p>
+                    <p>Subscriptions : {{ userData.subscription}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
