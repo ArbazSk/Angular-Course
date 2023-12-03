@@ -15,6 +15,23 @@ export class BasicFormComponent implements OnInit {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+    // this.signUpForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: ''
+    //   },
+    //   secret: 'pet',
+    //   questionAnswered: '',
+    //   gender: 'male'
+    // });
+    // setValue need all the control name i.e all form controls
+
+    // using patchValue in form obj we can set only control we need to set the value
+    this.signUpForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   // onSubmit(form: NgForm) {
