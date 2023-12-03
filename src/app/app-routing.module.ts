@@ -30,6 +30,7 @@ import { HomeObsComponents } from "./observables/home/home.component";
 import { UserObsComponents } from "./observables/user/user.component";
 import { BasicFormComponent } from "./angular-forms/template-driven/basic-form/basic-form.component";
 import { Assignment6Component } from "./assignment6/assignment6.component";
+import { ReactiveBasicFormComponent } from "./angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component";
 
 
 const routes: Routes = [
@@ -88,7 +89,8 @@ const routes: Routes = [
   },
   { path: "not-found", component: RouteNotFoundComponent },
   // { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page Not Found!' } },
-  { path: "forms", component: BasicFormComponent },
+  { path: "template-forms", component: BasicFormComponent },
+  { path: "reactive-forms", component: ReactiveBasicFormComponent },
   { path: "assignment6", component: Assignment6Component },
   { path: "**", redirectTo: '/not-found' }
 ];

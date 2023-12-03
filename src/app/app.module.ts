@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -48,6 +48,7 @@ import { HomeObsComponents } from './observables/home/home.component';
 import { UserObsComponents } from './observables/user/user.component';
 import { BasicFormComponent } from './angular-forms/template-driven/basic-form/basic-form.component';
 import { Assignment6Component } from './assignment6/assignment6.component';
+import { ReactiveBasicFormComponent } from './angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component';
 
 
 @NgModule({
@@ -97,11 +98,13 @@ import { Assignment6Component } from './assignment6/assignment6.component';
     UserObsComponents,
     BasicFormComponent,
     Assignment6Component,
+    ReactiveBasicFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
