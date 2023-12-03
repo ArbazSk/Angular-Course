@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-form',
@@ -13,8 +13,8 @@ export class ReactiveBasicFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      'username': new FormControl(null),
-      'email': new FormControl(''),
+      'username': new FormControl(null, Validators.required),
+      'email': new FormControl('', [Validators.required, Validators.email]),
       'gender': new FormControl('male')
     });
   }
