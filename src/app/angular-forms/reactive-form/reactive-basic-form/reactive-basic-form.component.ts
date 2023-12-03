@@ -17,7 +17,9 @@ export class ReactiveBasicFormComponent implements OnInit {
       'email': new FormControl(''),
       'gender': new FormControl('male')
     });
+  }
 
-
+  onSubmit() {
+    console.log(this.form);
   }
 }

@@ -35,3 +35,10 @@ Form Group
 ngModelGroup can be used to group the form control 
 refer the html for the code
 you will get the form group as the key in form object which will contains the form controls object
+
+
+
+Reactive Form
+* In reactive Form we create form in HTML and map its realted form obj in ts code.
+* to Create a Form obj we create a FormGroup object and pass an object which contains form controls.
+* to map ts and html we connect it using formControlName in html and pass the name same in the FormGroup
