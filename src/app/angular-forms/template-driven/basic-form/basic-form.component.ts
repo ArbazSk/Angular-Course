@@ -10,6 +10,14 @@ export class BasicFormComponent implements OnInit {
   @ViewChild('form') signUpForm: NgForm;
   answer = '';
   genders = ['male', 'female'];
+  user_data = {
+    username: '',
+    email: '',
+    secret: '',
+    answer: '',
+    gender: ''
+  };
+  submitted = false;
   constructor() { }
   ngOnInit(): void { }
 
@@ -40,6 +48,12 @@ export class BasicFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.signUpForm);
+    this.submitted = true;
+    this.user_data.username = this.signUpForm.value.userData.username;
+    this.user_data.email = this.signUpForm.value.userData.email;
+    this.user_data.secret = this.signUpForm.value.secret;
+    this.user_data.answer = this.signUpForm.value.questionAnswered;
+    this.user_data.gender = this.signUpForm.value.gender;
   }
 
 }
