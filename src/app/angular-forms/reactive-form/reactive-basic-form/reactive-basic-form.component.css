@@ -8,5 +8,9 @@ input.ng-invalid.ng-touched {
 
 .w-80 {
     width: 80%;
-    ;
+}
+
+.experience {
+    border: 1px solid black;
+    padding: 2em;
 }

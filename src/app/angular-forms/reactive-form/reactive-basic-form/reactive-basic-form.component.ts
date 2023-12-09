@@ -18,7 +18,8 @@ export class ReactiveBasicFormComponent implements OnInit {
         'email': new FormControl('', [Validators.required, Validators.email])
       }),
       'gender': new FormControl('male'),
-      'skills': new FormArray([])
+      'skills': new FormArray([]),
+      'experience': new FormArray([])
     });
   }
 
@@ -35,4 +36,23 @@ export class ReactiveBasicFormComponent implements OnInit {
     const skills = this.form.get('skills') as FormArray;
     skills.removeAt(i);
   }
+
+  addExperience() {
+    const group = new FormGroup({
+      company: new FormControl(''),
+      position: new FormControl(''),
+      totalExp: new FormControl(''),
+      start: new FormControl(''),
+      end: new FormControl(''),
+    });
+
+    const exp = this.form.get('experience') as FormArray
+    exp.push(group);
+  }
+
+  deleteExp(i: number) {
+    const exp = this.form.get('experience') as FormArray;
+    exp.removeAt(i);
+  }
+
 }

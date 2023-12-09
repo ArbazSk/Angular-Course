@@ -45,7 +45,34 @@
                     </div>
                     <button class="btn btn-primary" (click)="addSkill()">Add Skill</button>
                 </div>
-                <button class=" btn btn-primary" type="submit">Submit</button>
+                <div>
+                    <div class="experience-container" formArrayName="experience">
+                        <div class="experience mt-2"
+                            *ngFor="let exp of form.get('experience')['controls']; let i = index" [formGroupName]="i">
+                            <h4>Experience {{ i + 1 }}</h4>
+                            <input type="text" class="form-control" placeholder="Company Name"
+                                formControlName="company">
+                            <div class=" mt-4">
+                                <select class="form-control" formControlName="position">
+                                    <option>Junior Developer</option>
+                                    <option>Software Developer</option>
+                                    <option>Senior Developer</option>
+                                    <option>Team Lead</option>
+                                </select>
+                            </div>
+                            <input type="number" placeholder="experience" class="form-control mt-4"
+                                formControlName="totalExp">
+                            <input type="date" placeholder="Start Date" class="form-control mt-4"
+                                formControlName="start">
+                            <input type="date" placeholder="End Date" class="form-control mt-4" formControlName="end">
+                            <button type="button" class="btn btn-secondary mt-3" (click)="deleteExp(i)">Delete
+                                Experience</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary mt-3" (click)="addExperience()">Add
+                        Experience</button>
+                </div>
+                <button class=" btn btn-primary mt-4" type="submit">Submit</button>
             </form>
         </div>
     </div>
