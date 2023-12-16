@@ -49,6 +49,7 @@ import { UserObsComponents } from './observables/user/user.component';
 import { BasicFormComponent } from './angular-forms/template-driven/basic-form/basic-form.component';
 import { Assignment6Component } from './assignment6/assignment6.component';
 import { ReactiveBasicFormComponent } from './angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component';
+import { Assignment7Component } from './assignment7/assignment7.component';
 
 
 @NgModule({
@@ -98,7 +99,8 @@ import { ReactiveBasicFormComponent } from './angular-forms/reactive-form/reacti
     UserObsComponents,
     BasicFormComponent,
     Assignment6Component,
-    ReactiveBasicFormComponent
+    ReactiveBasicFormComponent,
+    Assignment7Component,
   ],
   imports: [
     BrowserModule,
