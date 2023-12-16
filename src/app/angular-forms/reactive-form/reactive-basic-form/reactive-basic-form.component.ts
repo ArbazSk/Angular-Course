@@ -1,25 +1,32 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-basic-form',
-  templateUrl: './reactive-basic-form.component.html',
-  styleUrls: ['./reactive-basic-form.component.css']
+  selector: "app-basic-form",
+  templateUrl: "./reactive-basic-form.component.html",
+  styleUrls: ["./reactive-basic-form.component.css"]
 })
 export class ReactiveBasicFormComponent implements OnInit {
   genders = ['male', 'female'];
+  forbiddenUsernames = ['Anna', 'Chris'];
   form: FormGroup;
   constructor() { }
 
-  noSpaceAllowed = (control: FormControl) => {
+  noSpaceAllowed = (control: AbstractControl) => {
     if (control.value != null && control.value.indexOf(" ") != -1) return { noSpaceAllowed: true };
     else return null;
+  }
+
+  forbiddenNames = (control: AbstractControl) => {
+    if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
+      return { nameIsForbidden: true };
+    } else return null;
   }
 
   ngOnInit(): void {
     this.form = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, [Validators.required, this.noSpaceAllowed]),
+        'username': new FormControl(null, [Validators.required, this.noSpaceAllowed, this.forbiddenNames]),
         'email': new FormControl('', [Validators.required, Validators.email])
       }),
       'gender': new FormControl('male'),
