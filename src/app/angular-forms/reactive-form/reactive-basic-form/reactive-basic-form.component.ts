@@ -11,13 +11,19 @@ export class ReactiveBasicFormComponent implements OnInit {
   form: FormGroup;
   constructor() { }
 
+  noSpaceAllowed = (control: FormControl) => {
+    if (control.value != null && control.value.indexOf(" ") != -1) return { noSpaceAllowed: true };
+    else return null;
+  }
+
   ngOnInit(): void {
     this.form = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required, this.noSpaceAllowed]),
         'email': new FormControl('', [Validators.required, Validators.email])
       }),
       'gender': new FormControl('male'),
+      'hobbies': new FormArray([]),
       'skills': new FormArray([]),
       'experience': new FormArray([])
     });
@@ -25,6 +31,19 @@ export class ReactiveBasicFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form);
+  }
+
+  addhobbies() {
+    (this.form.get('hobbies') as FormArray).push(new FormControl("", Validators.required));
+  }
+
+  get hobbies() {
+    return (this.form.get('hobbies') as FormArray).controls;
+  }
+
+  deleteHobbie(i: number) {
+    const skills = this.form.get('hobbies') as FormArray;
+    skills.removeAt(i);
   }
 
   addSkill() {
