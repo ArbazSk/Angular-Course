@@ -23,11 +23,23 @@ export class ReactiveBasicFormComponent implements OnInit {
     } else return null;
   }
 
+  forbiddenEmail = (control: FormControl) => {
+    return new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'test@test.com') {
+          resolve({ emailIsForbidden: true })
+        } else {
+          resolve(null)
+        }
+      }, 1500);
+    });
+  }
+
   ngOnInit(): void {
     this.form = new FormGroup({
       'userData': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.noSpaceAllowed, this.forbiddenNames]),
-        'email': new FormControl('', [Validators.required, Validators.email])
+        'email': new FormControl('', [Validators.required, Validators.email], this.forbiddenEmail)
       }),
       'gender': new FormControl('male'),
       'hobbies': new FormArray([]),
