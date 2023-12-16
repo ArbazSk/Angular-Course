@@ -46,6 +46,35 @@ export class ReactiveBasicFormComponent implements OnInit {
       'skills': new FormArray([]),
       'experience': new FormArray([])
     });
+
+    // we can use the below hooks, to closely watch the form changes.
+    // below code will watch all form control changes.
+    // we can set observable to individuals form control also.
+    // this.form.valueChanges.subscribe(value => {
+    //   console.log(value);
+    // });
+
+    // this.form.get('gender').valueChanges.subscribe(gender => {
+    //   console.log("Values of gender :: ", gender);
+    // });
+
+    // when using setValue in form we must provide all the formControl values 
+    this.form.setValue({
+      'userData': {
+        'username': "Max",
+        'email': "max@max.com"
+      },
+      'gender': 'male',
+      'hobbies': [],
+      'skills': [],
+      'experience': []
+    });
+
+    this.form.patchValue({
+      'userData': {
+        'username': "MaxWell",
+      }
+    });
   }
 
   onSubmit() {
