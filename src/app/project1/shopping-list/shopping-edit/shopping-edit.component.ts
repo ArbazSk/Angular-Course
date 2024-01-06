@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class ShoppingEditComponent implements OnInit {
   @ViewChild("form") form: NgForm;
   editMode = false;
-  editItemId: number;
+  editItemId: number = null;
   editItemIngredient: Ingredient;
   constructor(private ShoppingListService: ShoppingListService) { }
 
@@ -35,8 +35,14 @@ export class ShoppingEditComponent implements OnInit {
     this.onClear();
   }
 
+  onDelete() {
+    this.ShoppingListService.deleteIngredient(this.editItemId);
+    this.onClear();
+  }
+
   onClear() {
     this.editMode = false;
+    this.editItemId = null;
     this.form.reset();
   }
 

@@ -29,6 +29,11 @@ export class ShoppingListService {
         this.imgredientsChanged.next(this.getIngredients());
     }
 
+    deleteIngredient(id: number) {
+        this.ingredients.splice(id, 1);
+        this.imgredientsChanged.next(this.getIngredients());
+    }
+
     findIngredientById(id: number) {
         return this.ingredients[id];
     }
