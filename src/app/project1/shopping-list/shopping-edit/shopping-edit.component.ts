@@ -32,8 +32,7 @@ export class ShoppingEditComponent implements OnInit {
     let amount: string = form.value.amount;
     let ing = new Ingredient(ingredient, Number(amount))
     this.editMode ? this.ShoppingListService.updateIngredient(this.editItemId, ing) : this.ShoppingListService.addIngredients(ing);
-    this.editMode = false;
-    this.form.reset();
+    this.onClear();
   }
 
   onClear() {
