@@ -19,6 +19,11 @@ export class ShoppingListService {
         this.imgredientsChanged.next(this.getIngredients());
     }
 
+    updateIngredient(id: number, ingredient: Ingredient) {
+        this.ingredients[id] = ingredient;
+        this.imgredientsChanged.next(this.getIngredients());
+    }
+
     public addIngredientsArray(ingredient: Ingredient[]) {
         this.ingredients.push(...ingredient);
         this.imgredientsChanged.next(this.getIngredients());

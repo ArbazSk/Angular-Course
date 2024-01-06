@@ -15,7 +15,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-success m-2" [disabled]="!form.valid">Add</button>
+                    <button type="submit" class="btn btn-success m-2" [disabled]="!form.valid">
+                        {{ editMode ? "Edit" : "Add" }}
+                    </button>
                     <button type="button" class="btn btn-danger m-2">Delete</button>
                     <button type="button" class="btn btn-primary m-2">Clear</button>
                 </div>

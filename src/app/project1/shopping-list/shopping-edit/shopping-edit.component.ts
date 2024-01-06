@@ -30,7 +30,10 @@ export class ShoppingEditComponent implements OnInit {
   addIngredients(form: NgForm) {
     let ingredient: string = form.value.ingredient;
     let amount: string = form.value.amount;
-    this.ShoppingListService.addIngredients(new Ingredient(ingredient, Number(amount)));
+    let ing = new Ingredient(ingredient, Number(amount))
+    this.editMode ? this.ShoppingListService.updateIngredient(this.editItemId, ing) : this.ShoppingListService.addIngredients(ing);
+    this.editMode = false;
+    this.form.reset();
   }
 
 }
