@@ -50,6 +50,7 @@ import { BasicFormComponent } from './angular-forms/template-driven/basic-form/b
 import { Assignment6Component } from './assignment6/assignment6.component';
 import { ReactiveBasicFormComponent } from './angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component';
 import { Assignment7Component } from './assignment7/assignment7.component';
+import { RecipeService } from './project1/recipes/recipe.service';
 
 
 @NgModule({
@@ -108,7 +109,7 @@ import { Assignment7Component } from './assignment7/assignment7.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
