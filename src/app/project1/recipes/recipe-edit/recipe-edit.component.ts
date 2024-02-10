@@ -87,4 +87,8 @@ export class RecipeEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(["../"], { relativeTo: this.route })
   }
+
+  deleteIng(index: number) {
+    (<FormArray>this.recipieForm.get('ingredients')).removeAt(index);
+  }
 }
