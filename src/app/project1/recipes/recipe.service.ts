@@ -2,9 +2,11 @@ import { Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class RecipeService {
+    recipeChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [
         new Recipe("Chicken Rice", "South African Food",
             "https://tinybeans.com/wp-content/uploads/2021/10/african-food-recipes.png",
@@ -32,6 +34,15 @@ export class RecipeService {
 
     public addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.slService.addIngredientsArray(ingredients);
+    }
 
+    addRecipe(newRecipe: Recipe) {
+        this.recipes.push(newRecipe);
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    updateRecipe(index: number, newRecipe: Recipe) {
+        this.recipes[index] = newRecipe;
+        this.recipeChanged.next(this.recipes.slice());
     }
 }

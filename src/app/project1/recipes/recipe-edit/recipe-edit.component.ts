@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -27,14 +28,14 @@ export class RecipeEditComponent implements OnInit {
 
   initForm() {
     let recipeName = "";
-    let imageUrl = "";
+    let imagePath = "";
     let description = "";
     let recipeIngredient = new FormArray([]);
 
     if (this.editMode) {
       const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;
-      imageUrl = recipe.imagePath;
+      imagePath = recipe.imagePath;
       description = recipe.description;
 
       if (recipe?.ingredients.length > 0) {
@@ -51,7 +52,7 @@ export class RecipeEditComponent implements OnInit {
 
     this.recipieForm = new FormGroup({
       name: new FormControl(recipeName, Validators.required),
-      imageUrl: new FormControl(imageUrl, Validators.required),
+      imagePath: new FormControl(imagePath, Validators.required),
       description: new FormControl(description, Validators.required),
       ingredients: recipeIngredient
     })
@@ -69,7 +70,16 @@ export class RecipeEditComponent implements OnInit {
       }))
   }
 
-  update() {
-    console.log(this.recipieForm.value)
+  onSubmit() {
+    // const newRecipe = new Recipe(
+    //   this.recipieForm.value['name'],
+    //   this.recipieForm.value['description'],
+    //   this.recipieForm.value['imagePath'],
+    //   this.recipieForm.value['ingredients']);
+    if (this.editMode) {
+      this.recipeService.updateRecipe(this.id, this.recipieForm.value)
+    } else {
+      this.recipeService.addRecipe(this.recipieForm.value);
+    }
   }
 }
