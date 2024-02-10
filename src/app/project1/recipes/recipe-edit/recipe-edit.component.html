@@ -1,1 +1,82 @@
-<p>recipe-edit works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="recipieForm" (ngSubmit)="update()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form-control mt-2" formControlName="name">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL</label>
+                        <input type="text" name="imageUrl" id="imageUrl" class="form-control mt-2"
+                            formControlName="imageUrl">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control mt-2" name="description" id="description" rows="5"
+                            formControlName="description"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-8">
+                            Ingredients
+                        </div>
+                        <div class="col-md-4">
+                            <span class="cursor-pointer tool-tip" data-tooltip="Add Ingredient"
+                                (click)="addIngredient()">
+                                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
+                                    viewBox="0 0 400 400" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path d="M199.995,0C89.716,0,0,89.72,0,200c0,110.279,89.716,200,199.995,200C310.277,400,400,310.279,400,200
+        C400,89.72,310.277,0,199.995,0z M199.995,373.77C104.182,373.77,26.23,295.816,26.23,200c0-95.817,77.951-173.77,173.765-173.77
+        c95.817,0,173.772,77.953,173.772,173.77C373.769,295.816,295.812,373.77,199.995,373.77z" />
+                                            <path d="M279.478,186.884h-66.363V120.52c0-7.243-5.872-13.115-13.115-13.115s-13.115,5.873-13.115,13.115v66.368h-66.361
+        c-7.242,0-13.115,5.873-13.115,13.115c0,7.243,5.873,13.115,13.115,13.115h66.358v66.362c0,7.242,5.872,13.114,13.115,13.114
+        c7.242,0,13.115-5.872,13.115-13.114v-66.365h66.367c7.241,0,13.114-5.873,13.114-13.115
+        C292.593,192.757,286.72,186.884,279.478,186.884z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12" formArrayName="ingredients">
+                    <div class="row" *ngFor="let control of getControls(); let i = index" [formGroupName]="i">
+                        <div class="col-md-8">
+                            <input type="text" name="" id="" class="form-control mt-2" formControlName="name">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="" id="" class="form-control mt-2" formControlName="amount">
+                        </div>
+                        <div class="col-md-2 mt-2">
+                            <button type="button" class="btn btn-danger">
+                                X
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!recipieForm.valid">Save</button>
+                    <button type="button" class="btn btn-light ms-2">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
