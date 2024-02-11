@@ -51,6 +51,7 @@ import { Assignment6Component } from './assignment6/assignment6.component';
 import { ReactiveBasicFormComponent } from './angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component';
 import { Assignment7Component } from './assignment7/assignment7.component';
 import { RecipeService } from './project1/recipes/recipe.service';
+import { PipesComponent } from './pipes/pipes.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { RecipeService } from './project1/recipes/recipe.service';
     Assignment6Component,
     ReactiveBasicFormComponent,
     Assignment7Component,
+    PipesComponent,
   ],
   imports: [
     BrowserModule,

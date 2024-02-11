@@ -32,6 +32,7 @@ import { BasicFormComponent } from "./angular-forms/template-driven/basic-form/b
 import { Assignment6Component } from "./assignment6/assignment6.component";
 import { ReactiveBasicFormComponent } from "./angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component";
 import { Assignment7Component } from "./assignment7/assignment7.component";
+import { PipesComponent } from "./pipes/pipes.component";
 
 
 const routes: Routes = [
@@ -94,6 +95,7 @@ const routes: Routes = [
   { path: "reactive-forms", component: ReactiveBasicFormComponent },
   { path: "assignment6", component: Assignment6Component },
   { path: "assignment7", component: Assignment7Component },
+  { path: "pipes", component: PipesComponent },
   { path: "**", redirectTo: '/not-found' }
 ];
 
