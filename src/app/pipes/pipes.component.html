@@ -4,7 +4,7 @@
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let server of servers" [ngClass]="getStatusClasses(server)">
                     <span class="badge bg">{{ server.status }}</span>
-                    <strong>{{ server.name }}</strong> |
+                    <strong>{{ server.name | shorten}}</strong> |
                     {{ server.instanceType | uppercase }} |
                     {{ server.started | date:"fullDate" | uppercase }}
                 </li>
