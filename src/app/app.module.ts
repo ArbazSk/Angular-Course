@@ -53,6 +53,7 @@ import { Assignment7Component } from './assignment7/assignment7.component';
 import { RecipeService } from './project1/recipes/recipe.service';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -106,6 +107,7 @@ import { ShortenPipe } from './pipes/shorten.pipe';
     Assignment7Component,
     PipesComponent,
     ShortenPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
