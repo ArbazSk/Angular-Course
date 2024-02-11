@@ -7,6 +7,8 @@
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let server of servers | filter:filterInput:'status'"
                     [ngClass]="getStatusClasses(server)">
+                    <!-- Filter pipe takes whole array and not a single item of array  -->
+                    <!-- pipename : parameter1: parameter2: parameter3 and so on  -->
                     <span class="badge bg">{{ server.status }}</span>
                     <strong>{{ server.name | shorten:10}}</strong> |
                     {{ server.instanceType | uppercase }} |
