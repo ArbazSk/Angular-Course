@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Assignment 8 : Pipes</h1>
+            <ol>
+                <li>Create a Reverse Pipe and use it</li>
+                <li>Create a Sort Pipe and use it</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Solutions</h1>
+            <div class="row">
+                <div class="col-9">
+                    <div class="container">
+                        <h3>Filter Server By Status</h3>
+                        <input type="text" [(ngModel)]="filterInput">
+                        <button class="btn btn-primary ms-2" (click)="addServer()">Add Server</button>
+                        <hr>
+                        <h2>App Status : {{appStatus | async}}</h2>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+                                <ul class="list-group">
+                                    <li class="list-group-item"
+                                        *ngFor="let server of servers | filter:filterInput:'status' | sort:'name'"
+                                        [ngClass]="getStatusClasses(server)">
+                                        <span class="badge bg">{{ server.status }}</span>
+                                        <strong>{{ server.name | shorten:10}}</strong> |
+                                        {{ server.instanceType | uppercase | reverse }} |
+                                        {{ server.started | date:"fullDate" | uppercase }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

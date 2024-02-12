@@ -33,6 +33,7 @@ import { Assignment6Component } from "./assignment6/assignment6.component";
 import { ReactiveBasicFormComponent } from "./angular-forms/reactive-form/reactive-basic-form/reactive-basic-form.component";
 import { Assignment7Component } from "./assignment7/assignment7.component";
 import { PipesComponent } from "./pipes/pipes.component";
+import { Assignment8Component } from "./assignment8/assignment8.component";
 
 
 const routes: Routes = [
@@ -96,6 +97,7 @@ const routes: Routes = [
   { path: "assignment6", component: Assignment6Component },
   { path: "assignment7", component: Assignment7Component },
   { path: "pipes", component: PipesComponent },
+  { path: "assignment8", component: Assignment8Component },
   { path: "**", redirectTo: '/not-found' }
 ];
 

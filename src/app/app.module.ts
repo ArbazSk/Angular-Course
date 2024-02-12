@@ -54,6 +54,9 @@ import { RecipeService } from './project1/recipes/recipe.service';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { Assignment8Component } from './assignment8/assignment8.component';
+import { ReversePipe } from './assignment8/reverse.pipe';
+import { SortPipe } from './assignment8/sort.pipe';
 
 
 @NgModule({
@@ -108,6 +111,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     PipesComponent,
     ShortenPipe,
     FilterPipe,
+    Assignment8Component,
+    ReversePipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
