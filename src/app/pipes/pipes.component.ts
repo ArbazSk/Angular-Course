@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-pipes',
@@ -33,6 +33,14 @@ export class PipesComponent {
     }
   ];
   filterInput: string;
+
+  appStatus = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("offline"), 2000)
+  });
+
+  // we can use async pipe when dealing with asynchronous data
+  // it worls on Promise and Observable
+
   getStatusClasses(server: { instanceType: string, name: string, status: string, started: Date }) {
     return {
       'list-group-item-success': server.status === 'stable',
