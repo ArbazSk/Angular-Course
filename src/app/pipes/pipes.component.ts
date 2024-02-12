@@ -40,4 +40,21 @@ export class PipesComponent {
       'list-group-item-danger': server.status === 'critical'
     };
   }
+
+  addServer() {
+    this.servers.push({
+      instanceType: 'small',
+      name: 'New Server',
+      status: 'stable',
+      started: new Date(15, 1, 2017)
+    })
+  }
+  /* 
+  Problem with pipes: When data changes i.e property has been added or item has been added
+    in an Array then pipes doesn't run every time data changes because of performance issues.
+    This is called Impure Pipes. it changes only on pipe input
+    To call filter pipe on every changes we need to add property in pipe class Decorator called pure: false
+    this will call pipe on every data change.
+  
+  */
 }
