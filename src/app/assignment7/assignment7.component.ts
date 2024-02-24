@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class Assignment7Component {
 
-  projectNameNotAllowed = (control: FormControl) => {
+  projectNameNotAllowed = (control: UntypedFormControl) => {
     if (control.value === 'Test') return { projectNameNotAllowed: true };
     else return null;
   }
 
-  emailNotAllowed = (control: FormControl) => {
+  emailNotAllowed = (control: UntypedFormControl) => {
     return new Promise<any>((resolve, reject) => {
       setTimeout(() => {
         console.log("Subscriber");
@@ -24,10 +24,10 @@ export class Assignment7Component {
     })
   }
 
-  form: FormGroup = new FormGroup({
-    projectName: new FormControl(null, [Validators.required, this.projectNameNotAllowed]),
-    email: new FormControl(null, [Validators.required, Validators.email], this.emailNotAllowed),
-    status: new FormControl('Stable')
+  form: UntypedFormGroup = new UntypedFormGroup({
+    projectName: new UntypedFormControl(null, [Validators.required, this.projectNameNotAllowed]),
+    email: new UntypedFormControl(null, [Validators.required, Validators.email], this.emailNotAllowed),
+    status: new UntypedFormControl('Stable')
   });
 
   onSubmit() {
