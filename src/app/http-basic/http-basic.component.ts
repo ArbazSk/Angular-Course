@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { Post } from './post.model';
+import { PostService } from './http-basic.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-http-basic',
@@ -10,21 +10,21 @@ import { Post } from './post.model';
 })
 export class HttpBasicComponent {
   loadedPosts = [];
-  readonly API_URL = "https://angular-practice-22862-default-rtdb.firebaseio.com";
   isFetching = false;
-  constructor(private http: HttpClient) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
     this.fetchPosts();
   }
 
-  onCreatePost(postData: Post) {
-    // Send Http request
-    console.log(postData);
-    this.http.post<{ name: string }>(`${this.API_URL}/posts.json`, postData)
+  onCreatePost(postData: Post, form: NgForm) {
+    this.postService.createAndStorePost(postData.title, postData.content)
       .subscribe(responseData => {
-        console.log("data :: ", responseData)
-      })
+        console.log("data :: ", responseData);
+        form.reset();
+        this.fetchPosts();
+      });
+
   }
 
   onFetchPosts() {
@@ -38,16 +38,7 @@ export class HttpBasicComponent {
 
   private fetchPosts() {
     this.isFetching = true;
-    this.http.get<{ [key: string]: Post }>(`${this.API_URL}/posts.json`)
-      .pipe(map(posts => {
-        let postsArray: Post[] = [];
-        for (const key in posts) {
-          if (posts.hasOwnProperty(key)) {
-            postsArray.push({ ...posts[key], id: key })
-          }
-        }
-        return postsArray
-      }))
+    this.postService.fetchPosts()
       .subscribe(posts => {
         this.loadedPosts = posts;
         this.isFetching = false;
