@@ -11,7 +11,7 @@ import { Post } from './post.model';
 export class HttpBasicComponent {
   loadedPosts = [];
   readonly API_URL = "https://angular-practice-22862-default-rtdb.firebaseio.com";
-
+  isFetching = false;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -37,18 +37,20 @@ export class HttpBasicComponent {
   }
 
   private fetchPosts() {
+    this.isFetching = true;
     this.http.get<{ [key: string]: Post }>(`${this.API_URL}/posts.json`)
       .pipe(map(posts => {
         let postsArray: Post[] = [];
         for (const key in posts) {
-          if (posts.hasOwnProperty("key")) {
+          if (posts.hasOwnProperty(key)) {
             postsArray.push({ ...posts[key], id: key })
           }
         }
         return postsArray
       }))
       .subscribe(posts => {
-        console.log("data :: ", posts)
+        this.loadedPosts = posts;
+        this.isFetching = false;
       });
   }
 }

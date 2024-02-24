@@ -1,7 +1,26 @@
 .container {
-    margin-top: 30px;
+  margin-top: 30px;
+}
+
+.row {
+  margin: 20px 0;
+}
+
+.loader {
+  border: 8px solid #d6d6d6;
+  border-top: 8px solid rgb(76, 76, 76);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .row {
-    margin: 20px 0;
+
+  100% {
+    transform: rotate(360deg);
   }
+}
