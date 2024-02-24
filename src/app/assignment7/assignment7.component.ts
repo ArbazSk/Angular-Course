@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormControl, FormGroup, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-assignment7',
@@ -9,25 +8,25 @@ import { Observable } from 'rxjs';
 })
 export class Assignment7Component {
 
-  projectNameNotAllowed = (control: UntypedFormControl) => {
+  projectNameNotAllowed = (control: FormControl<string>) => {
     if (control.value === 'Test') return { projectNameNotAllowed: true };
     else return null;
   }
 
-  emailNotAllowed = (control: UntypedFormControl) => {
+  emailNotAllowed = (control: FormControl<string>) => {
     return new Promise<any>((resolve, reject) => {
       setTimeout(() => {
         console.log("Subscriber");
         if (control.value === 'test@test.com') resolve({ emailNotAllowed: true });
-        else resolve(null);
+        else resolve("");
       }, 1500);
     })
   }
 
-  form: UntypedFormGroup = new UntypedFormGroup({
-    projectName: new UntypedFormControl(null, [Validators.required, this.projectNameNotAllowed]),
-    email: new UntypedFormControl(null, [Validators.required, Validators.email], this.emailNotAllowed),
-    status: new UntypedFormControl('Stable')
+  form: FormGroup = new FormGroup({
+    projectName: new FormControl("", [Validators.required, this.projectNameNotAllowed]),
+    email: new FormControl("", [Validators.required, Validators.email], this.emailNotAllowed),
+    status: new FormControl('Stable')
   });
 
   onSubmit() {

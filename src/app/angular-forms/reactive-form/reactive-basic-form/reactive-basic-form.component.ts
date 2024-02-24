@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: "app-basic-form",
@@ -23,7 +23,7 @@ export class ReactiveBasicFormComponent implements OnInit {
     } else return null;
   }
 
-  forbiddenEmail = (control: UntypedFormControl) => {
+  forbiddenEmail = (control: FormControl<string>) => {
     return new Promise<any>((resolve, reject) => {
       setTimeout(() => {
         if (control.value === 'test@test.com') {
@@ -36,15 +36,15 @@ export class ReactiveBasicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.form = new UntypedFormGroup({
-      'userData': new UntypedFormGroup({
-        'username': new UntypedFormControl(null, [Validators.required, this.noSpaceAllowed, this.forbiddenNames]),
-        'email': new UntypedFormControl('', [Validators.required, Validators.email], this.forbiddenEmail)
+    this.form = new FormGroup({
+      'userData': new FormGroup({
+        'username': new FormControl("", [Validators.required, this.noSpaceAllowed, this.forbiddenNames]),
+        'email': new FormControl('', [Validators.required, Validators.email], this.forbiddenEmail)
       }),
-      'gender': new UntypedFormControl('male'),
-      'hobbies': new UntypedFormArray([]),
-      'skills': new UntypedFormArray([]),
-      'experience': new UntypedFormArray([])
+      'gender': new FormControl('male'),
+      'hobbies': new FormArray([]),
+      'skills': new FormArray([]),
+      'experience': new FormArray([])
     });
 
     // we can use the below hooks, to closely watch the form changes.
@@ -82,11 +82,11 @@ export class ReactiveBasicFormComponent implements OnInit {
   }
 
   addhobbies() {
-    (this.form.get('hobbies') as UntypedFormArray).push(new UntypedFormControl("", Validators.required));
+    (this.form.get('hobbies') as FormArray).push(new FormControl("", Validators.required));
   }
 
   get hobbies() {
-    return (this.form.get('hobbies') as UntypedFormArray).controls;
+    return (this.form.get('hobbies') as FormArray).controls;
   }
 
   deleteHobbie(i: number) {

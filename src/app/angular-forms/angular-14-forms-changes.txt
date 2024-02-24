@@ -1,0 +1,6 @@
+From Angular 14
+Angular has added Type Safety to Reactive forms. There is not Type Safety for Template Driven Forms.
+Before Angular 14 all FormGroup, FormControl and FormArray etc does not have Type Safety. all have value any or null
+Link for the changes https://angular.io/guide/typed-forms
+All Form Classes has been changed and prefix have been added "Untyped" after migration, eg UntypedFormGroup -> FormGroup
+We can change it to Types Form step by step at our paced

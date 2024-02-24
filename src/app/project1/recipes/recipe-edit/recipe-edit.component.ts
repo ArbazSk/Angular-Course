@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 
@@ -50,10 +50,10 @@ export class RecipeEditComponent implements OnInit {
       }
     }
 
-    this.recipieForm = new UntypedFormGroup({
-      name: new UntypedFormControl(recipeName, Validators.required),
-      imagePath: new UntypedFormControl(imagePath, Validators.required),
-      description: new UntypedFormControl(description, Validators.required),
+    this.recipieForm = new FormGroup({
+      name: new FormControl(recipeName, Validators.required),
+      imagePath: new FormControl(imagePath, Validators.required),
+      description: new FormControl(description, Validators.required),
       ingredients: recipeIngredient
     })
   }
