@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Assignment1Component } from './assignment1/assignment1.component';
@@ -57,7 +57,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { Assignment8Component } from './assignment8/assignment8.component';
 import { ReversePipe } from './assignment8/reverse.pipe';
 import { SortPipe } from './assignment8/sort.pipe';
-
+import { HttpBasicComponent } from './http-basic/http-basic.component';
 
 @NgModule({
   declarations: [
@@ -113,13 +113,15 @@ import { SortPipe } from './assignment8/sort.pipe';
     FilterPipe,
     Assignment8Component,
     ReversePipe,
-    SortPipe
+    SortPipe,
+    HttpBasicComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]

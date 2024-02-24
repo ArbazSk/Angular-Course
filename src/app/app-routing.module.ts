@@ -34,6 +34,7 @@ import { ReactiveBasicFormComponent } from "./angular-forms/reactive-form/reacti
 import { Assignment7Component } from "./assignment7/assignment7.component";
 import { PipesComponent } from "./pipes/pipes.component";
 import { Assignment8Component } from "./assignment8/assignment8.component";
+import { HttpBasicComponent } from "./http-basic/http-basic.component";
 
 
 const routes: Routes = [
@@ -98,6 +99,7 @@ const routes: Routes = [
   { path: "assignment7", component: Assignment7Component },
   { path: "pipes", component: PipesComponent },
   { path: "assignment8", component: Assignment8Component },
+  { path: "http-basic", component: HttpBasicComponent },
   { path: "**", redirectTo: '/not-found' }
 ];
 
