@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Post } from "./post.model";
 import { map } from "rxjs/operators";
@@ -20,7 +20,9 @@ export class PostService {
     }
 
     fetchPosts() {
-        return this.http.get<{ [key: string]: Post }>(`${this.API_URL}/posts.json`)
+        let params = new HttpParams();
+        params = params.append("print", "pretty");
+        return this.http.get<{ [key: string]: Post }>(`${this.API_URL}/posts.json`, { params: params })
             .pipe(map(posts => {
                 let postsArray: Post[] = [];
                 for (const key in posts) {
