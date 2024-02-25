@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 export class HttpBasicComponent {
   loadedPosts = [];
   isFetching = false;
+  error = null;
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -42,6 +43,10 @@ export class HttpBasicComponent {
       .subscribe(posts => {
         this.loadedPosts = posts;
         this.isFetching = false;
+      }, err => {
+        console.log(err)
+        this.error = err.message;
+        // this.isFetching = false;
       });
   }
 }
