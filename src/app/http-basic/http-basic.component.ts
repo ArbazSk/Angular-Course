@@ -33,7 +33,7 @@ export class HttpBasicComponent {
   }
 
   onClearPosts() {
-    // Send Http request
+    this.postService.deleteAllPosts().subscribe(data => this.loadedPosts = []);
   }
 
   private fetchPosts() {
