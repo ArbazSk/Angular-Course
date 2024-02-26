@@ -59,6 +59,7 @@ import { ReversePipe } from './assignment8/reverse.pipe';
 import { SortPipe } from './assignment8/sort.pipe';
 import { HttpBasicComponent } from './http-basic/http-basic.component';
 import { AuthInterceptorService } from './http-basic/auth-interceptor.service';
+import { LoggingInterceptorService } from './http-basic/loggin-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,11 @@ import { AuthInterceptorService } from './http-basic/auth-interceptor.service';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true // says that we can use multiple interceptors
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
