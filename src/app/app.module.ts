@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Assignment1Component } from './assignment1/assignment1.component';
@@ -58,6 +58,7 @@ import { Assignment8Component } from './assignment8/assignment8.component';
 import { ReversePipe } from './assignment8/reverse.pipe';
 import { SortPipe } from './assignment8/sort.pipe';
 import { HttpBasicComponent } from './http-basic/http-basic.component';
+import { AuthInterceptorService } from './http-basic/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -123,7 +124,15 @@ import { HttpBasicComponent } from './http-basic/http-basic.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [
+    ShoppingListService,
+    RecipeService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true // says that we can use multiple interceptors
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
