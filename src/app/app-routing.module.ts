@@ -35,6 +35,7 @@ import { Assignment7Component } from "./assignment7/assignment7.component";
 import { PipesComponent } from "./pipes/pipes.component";
 import { Assignment8Component } from "./assignment8/assignment8.component";
 import { HttpBasicComponent } from "./http-basic/http-basic.component";
+import { recipeResolver } from "./project1/recipes/recipe-resolver.service";
 
 
 const routes: Routes = [
@@ -51,8 +52,8 @@ const routes: Routes = [
         children: [
           { path: '', component: RecipeStartComponent },
           { path: 'new', component: RecipeEditComponent },
-          { path: ':id', component: RecipeDetailComponent },
-          { path: ':id/edit', component: RecipeEditComponent },
+          { path: ':id', component: RecipeDetailComponent, resolve: { resolver: recipeResolver } },
+          { path: ':id/edit', component: RecipeEditComponent, resolve: { resolver: recipeResolver } },
         ]
       },
       { path: 'shopping-list', component: ShoppingListComponent }

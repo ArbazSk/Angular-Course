@@ -7,25 +7,32 @@ import { Subject } from "rxjs";
 @Injectable()
 export class RecipeService {
     recipeChanged = new Subject<Recipe[]>();
-    private recipes: Recipe[] = [
-        new Recipe("Chicken Rice", "South African Food",
-            "https://tinybeans.com/wp-content/uploads/2021/10/african-food-recipes.png",
-            [
-                new Ingredient("Chicken", 1),
-                new Ingredient("Rice", 1)
-            ]),
-        new Recipe("Barramundi", "Australian Food",
-            "https://australianbarramundi.com.au/wp-content/uploads/2022/07/national-barramundi-day-1916-cropped.jpg",
-            [
-                new Ingredient("Barramundi Fish", 1),
-                new Ingredient("Garlic Sauce", 1)
-            ]),
-    ];
+    /*  private recipes: Recipe[] = [
+         new Recipe("Chicken Rice", "South African Food",
+             "https://tinybeans.com/wp-content/uploads/2021/10/african-food-recipes.png",
+             [
+                 new Ingredient("Chicken", 1),
+                 new Ingredient("Rice", 1)
+             ]),
+         new Recipe("Barramundi", "Australian Food",
+             "https://australianbarramundi.com.au/wp-content/uploads/2022/07/national-barramundi-day-1916-cropped.jpg",
+             [
+                 new Ingredient("Barramundi Fish", 1),
+                 new Ingredient("Garlic Sauce", 1)
+             ]),
+     ]; */
+
+    private recipes: Recipe[] = [];
 
     constructor(private slService: ShoppingListService) { }
 
     getRecipes() {
         return this.recipes.slice();
+    }
+
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipeChanged.next(this.recipes.slice())
     }
 
     getRecipe(index: number) {
