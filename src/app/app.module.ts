@@ -60,6 +60,7 @@ import { SortPipe } from './assignment8/sort.pipe';
 import { HttpBasicComponent } from './http-basic/http-basic.component';
 import { AuthInterceptorService } from './http-basic/auth-interceptor.service';
 import { LoggingInterceptorService } from './http-basic/loggin-interceptor.service';
+import { AuthComponent } from './project1/auth/auth.component.';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { LoggingInterceptorService } from './http-basic/loggin-interceptor.servi
     Assignment8Component,
     ReversePipe,
     SortPipe,
-    HttpBasicComponent
+    HttpBasicComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
