@@ -27,9 +27,9 @@ export class AuthComponent {
 
         let auth$: Observable<AuthResponse>;
         if (this.isLoginMode) {
-            this.authService.singIn(email, password);
+            auth$ = this.authService.singIn(email, password);
         } else {
-            this.authService.signUp(email, password);
+            auth$ = this.authService.signUp(email, password);
         }
 
         auth$.subscribe(response => {
