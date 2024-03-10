@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { FIREBASE_API_KEYS } from "env";
+import { throwError } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
@@ -15,7 +17,19 @@ export class AuthService {
             password: password,
             returnSecureToken: true
         }
-        return this.http.post<AuthResponse>(this.signupURL, payload);
+        return this.http.post<AuthResponse>(this.signupURL, payload)
+            .pipe(catchError(err => {
+                let error = "An Unknown Error Occurred!."
+                if (!err.error || !err.error.error) {
+                    return throwError(error);
+                }
+                switch (err.error.error.message) {
+                    case "EMAIL_EXISTS":
+                        error = "Email Already Exist";
+                        break;
+                }
+                return throwError(error);
+            }));
     }
 
     singIn(email: string, password: string) {
