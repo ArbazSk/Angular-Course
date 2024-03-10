@@ -15,7 +15,6 @@ export class AuthComponent {
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
-        console.log(this.isLoginMode)
     }
 
     onSubmit(form: NgForm) {
