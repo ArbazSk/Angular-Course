@@ -8,11 +8,14 @@ import { AuthService } from "./auth.service";
     styleUrls: ["./auth.component.css"]
 })
 export class AuthComponent {
-    isLogging = false;
+    isLoginMode = false;
+    isLoading = false;
+    error: string = null;
     private authService = inject(AuthService);
 
     onSwitchMode() {
-        this.isLogging = !this.isLogging;
+        this.isLoginMode = !this.isLoginMode;
+        console.log(this.isLoginMode)
     }
 
     onSubmit(form: NgForm) {
@@ -20,8 +23,8 @@ export class AuthComponent {
         if (!form.valid) return;
         const email = form.value.email;
         const password = form.value.password;
-
-        if (this.isLogging) {
+        this.isLoading = true;
+        if (this.isLoginMode) {
 
         } else {
             this.signup(email, password);
@@ -34,6 +37,11 @@ export class AuthComponent {
         this.authService.signUp(email, pass)
             .subscribe(response => {
                 console.log(response)
-            }, err => console.log(err))
+                this.isLoading = false;
+            }, err => {
+                console.log(err);
+                this.error = 'An error occurred!';
+                this.isLoading = false;
+            })
     }
 }
