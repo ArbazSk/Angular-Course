@@ -141,6 +141,11 @@ import { Loading } from './shared/loading/loading.component';
       provide: HTTP_INTERCEPTORS,
       useClass: LoggingInterceptorService,
       multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
