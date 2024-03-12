@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { FIREBASE_API_KEYS } from "env";
-import { Subject, throwError } from "rxjs";
+import { BehaviorSubject, Subject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { User } from "./user.model";
 
@@ -12,7 +12,7 @@ export class AuthService {
     private loginURL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + this.key;
     private http = inject(HttpClient);
 
-    user = new Subject<User>;
+    user = new BehaviorSubject<User>(null);
 
     signUp(email: string, password: string) {
         const payload = {
