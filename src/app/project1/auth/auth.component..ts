@@ -2,6 +2,7 @@ import { Component, inject } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { AuthResponse, AuthService } from "./auth.service";
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-auth",
@@ -13,6 +14,7 @@ export class AuthComponent {
     isLoading = false;
     error: string = null;
     private authService = inject(AuthService);
+    private router = inject(Router);
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
@@ -35,6 +37,7 @@ export class AuthComponent {
         auth$.subscribe(response => {
             console.log(response)
             this.isLoading = false;
+            this.router.navigate(['/recipes']);
         }, err => {
             console.log(err);
             this.error = err;
