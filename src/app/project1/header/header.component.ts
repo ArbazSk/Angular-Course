@@ -33,4 +33,8 @@ export class HeaderComponent implements OnInit {
     this.dataStore.fetchRecipe().subscribe();
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
+
 }
