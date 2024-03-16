@@ -13,6 +13,7 @@ export class AuthService {
     private loginURL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + this.key;
     private http = inject(HttpClient);
     private router = inject(Router);
+    private tokenExpirationTimer: any;
 
     user = new BehaviorSubject<User>(null);
 
@@ -41,12 +42,22 @@ export class AuthService {
     logout() {
         this.user.next(null);
         this.router.navigate(["project1/login"]);
+        localStorage.removeItem("userData");
+        if (this.tokenExpirationTimer) clearTimeout(this.tokenExpirationTimer);
+        this.tokenExpirationTimer = null;
+    }
+
+    autoLogout(expirationDuration: number) {
+        this.tokenExpirationTimer = setTimeout(() => {
+            this.logout();
+        }, expirationDuration);
     }
 
     private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
         const expirationDate = new Date(new Date().getTime() + (expiresIn * 1000));
         const user = new User(email, userId, token, expirationDate);
         this.user.next(user);
+        this.autoLogout(expiresIn * 1000); // in miliseconds
         localStorage.setItem("userData", JSON.stringify(user));
     }
 
@@ -61,6 +72,8 @@ export class AuthService {
         const lodedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
         if (lodedUser.token) {
             this.user.next(lodedUser);
+            const expirationDate = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
+            this.autoLogout(expirationDate);
         }
     }
 
