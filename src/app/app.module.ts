@@ -62,6 +62,7 @@ import { AuthInterceptorService } from './http-basic/auth-interceptor.service';
 import { LoggingInterceptorService } from './http-basic/loggin-interceptor.service';
 import { AuthComponent } from './project1/auth/auth.component.';
 import { Loading } from './shared/loading/loading.component';
+import { AlertComponent } from './project1/shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { Loading } from './shared/loading/loading.component';
     SortPipe,
     HttpBasicComponent,
     AuthComponent,
-    Loading
+    Loading,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

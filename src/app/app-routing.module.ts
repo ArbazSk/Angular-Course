@@ -48,10 +48,9 @@ const routes: Routes = [
   {
     path: 'project1', component: Project1Component,
     children: [
-      { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
-        path: 'recipes', component: RecipesComponent,
-        canActivate: [authGuard],
+        path: 'recipes', component: RecipesComponent, canActivate: [authGuard],
         children: [
           { path: '', component: RecipeStartComponent },
           { path: 'new', component: RecipeEditComponent },
