@@ -63,6 +63,7 @@ import { LoggingInterceptorService } from './http-basic/loggin-interceptor.servi
 import { AuthComponent } from './project1/auth/auth.component.';
 import { Loading } from './shared/loading/loading.component';
 import { AlertComponent } from './project1/shared/alert/alert.component';
+import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { AlertComponent } from './project1/shared/alert/alert.component';
     HttpBasicComponent,
     AuthComponent,
     Loading,
-    AlertComponent
+    AlertComponent,
+    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
