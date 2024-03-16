@@ -37,6 +37,7 @@ import { Assignment8Component } from "./assignment8/assignment8.component";
 import { HttpBasicComponent } from "./http-basic/http-basic.component";
 import { recipeResolver } from "./project1/recipes/recipe-resolver.service";
 import { AuthComponent } from "./project1/auth/auth.component.";
+import { authGuard } from "./project1/auth/auth.guard";
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'recipes', pathMatch: 'full' },
       {
         path: 'recipes', component: RecipesComponent,
+        canActivate: [authGuard],
         children: [
           { path: '', component: RecipeStartComponent },
           { path: 'new', component: RecipeEditComponent },
