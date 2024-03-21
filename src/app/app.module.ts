@@ -102,7 +102,6 @@ import { Project1Module } from './project1/project1.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    Project1Module,
   ],
   providers: [
     {
