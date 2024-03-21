@@ -7,7 +7,6 @@ import { Assignment4Component } from "./assignment4/assignment4.component";
 import { Assignment5Component } from "./assignment5/assignment5.component";
 import { DirectivesComponent } from "./directives/directives.component";
 import { HomeComponent } from "./home/home.component";
-import { Project1Component } from "./project1/project1.component";
 import { RoutingBasic } from "./routing-basic/routing-basic.component";
 import { HomeComponentR } from "./routing-basic/home/home.component";
 import { ServersComponent } from "./routing-basic/servers/servers.component";
@@ -18,13 +17,7 @@ import { EditServerComponent } from "./routing-basic/servers/edit-server/edit-se
 import { ServerComponent } from "./routing-basic/servers/server/server.component";
 import { AuthGuardGuard } from "./auth.guard";
 import { canDeactivateGuard } from "./routing-basic/servers/edit-server/can-deactivate.guard";
-import { ErrorPageComponent } from "./routing-basic/error-page/error-page.component";
 import { ServerResolver } from "./routing-basic/servers/server/server-resolver.service";
-import { RecipesComponent } from "./project1/recipes/recipes.component";
-import { ShoppingListComponent } from "./project1/shopping-list/shopping-list.component";
-import { RecipeDetailComponent } from "./project1/recipes/recipe-detail/recipe-detail.component";
-import { RecipeStartComponent } from "./project1/recipes/recipe-start/recipe-start.component";
-import { RecipeEditComponent } from "./project1/recipes/recipe-edit/recipe-edit.component";
 import { ObsComponent } from "./observables/obs.component";
 import { HomeObsComponents } from "./observables/home/home.component";
 import { UserObsComponents } from "./observables/user/user.component";
@@ -35,9 +28,6 @@ import { Assignment7Component } from "./assignment7/assignment7.component";
 import { PipesComponent } from "./pipes/pipes.component";
 import { Assignment8Component } from "./assignment8/assignment8.component";
 import { HttpBasicComponent } from "./http-basic/http-basic.component";
-import { recipeResolver } from "./project1/recipes/recipe-resolver.service";
-import { AuthComponent } from "./project1/auth/auth.component.";
-import { authGuard } from "./project1/auth/auth.guard";
 
 
 const routes: Routes = [
@@ -45,23 +35,7 @@ const routes: Routes = [
   { path: 'assignment1', component: Assignment1Component },
   { path: 'assignment2', component: Assignment2Component },
   { path: 'assignment3', component: Assignment3Component },
-  {
-    path: 'project1', component: Project1Component,
-    children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      {
-        path: 'recipes', component: RecipesComponent, canActivate: [authGuard],
-        children: [
-          { path: '', component: RecipeStartComponent },
-          { path: 'new', component: RecipeEditComponent },
-          { path: ':id', component: RecipeDetailComponent, resolve: { resolver: recipeResolver } },
-          { path: ':id/edit', component: RecipeEditComponent, resolve: { resolver: recipeResolver } },
-        ]
-      },
-      { path: 'shopping-list', component: ShoppingListComponent },
-      { path: 'login', component: AuthComponent }
-    ]
-  },
+  { path: 'project1', loadChildren: () => import('./project1/project1.module').then(m => m.Project1Module) },
   { path: 'assignment4', component: Assignment4Component },
   { path: 'directives', component: DirectivesComponent },
   { path: 'assignment5', component: Assignment5Component },

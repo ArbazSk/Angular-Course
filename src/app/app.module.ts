@@ -64,6 +64,7 @@ import { AuthComponent } from './project1/auth/auth.component.';
 import { Loading } from './shared/loading/loading.component';
 import { AlertComponent } from './project1/shared/alert/alert.component';
 import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.directive';
+import { Project1Module } from './project1/project1.module';
 
 @NgModule({
   declarations: [
@@ -75,14 +76,6 @@ import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.
     HomeComponent,
     Assignment2Component,
     Assignment3Component,
-    Project1Component,
-    HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     Assignment4Component,
     GameControlComponent,
     OddComponent,
@@ -90,7 +83,6 @@ import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.
     DirectivesComponent,
     BasicDirective,
     BetterHighlighterDirective,
-    DropDownDirective,
     Assignment5Component,
     ActiveUsersComponent,
     InactiveUsersComponent,
@@ -104,8 +96,6 @@ import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.
     UserComponent,
     RouteNotFoundComponent,
     ErrorPageComponent,
-    RecipeStartComponent,
-    RecipeEditComponent,
     //observabels component
     ObsComponent,
     HomeObsComponents,
@@ -121,21 +111,17 @@ import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.
     ReversePipe,
     SortPipe,
     HttpBasicComponent,
-    AuthComponent,
-    Loading,
-    AlertComponent,
-    PlaceholderDirective
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Project1Module,
   ],
   providers: [
-    ShoppingListService,
-    RecipeService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
@@ -144,11 +130,6 @@ import { PlaceholderDirective } from './project1/shared/placeholder/placeholder.
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoggingInterceptorService,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
       multi: true
     }
   ],
