@@ -29,7 +29,6 @@ import { PipesComponent } from "./pipes/pipes.component";
 import { Assignment8Component } from "./assignment8/assignment8.component";
 import { HttpBasicComponent } from "./http-basic/http-basic.component";
 
-
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'assignment1', component: Assignment1Component },
@@ -78,6 +77,7 @@ const routes: Routes = [
   { path: "pipes", component: PipesComponent },
   { path: "assignment8", component: Assignment8Component },
   { path: "http-basic", component: HttpBasicComponent },
+  { path: "standalone", loadChildren: () => import("./standalone-component/standalone-component.module").then(m => m.StandaloneComponentModule) },
   { path: "**", redirectTo: '/not-found' }
 ];
 

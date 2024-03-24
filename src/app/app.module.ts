@@ -47,7 +47,7 @@ import { SortPipe } from './assignment8/sort.pipe';
 import { HttpBasicComponent } from './http-basic/http-basic.component';
 import { AuthInterceptorService } from './http-basic/auth-interceptor.service';
 import { LoggingInterceptorService } from './http-basic/loggin-interceptor.service';
-import { Project1Module } from './project1/project1.module';
+import { StandaloneComponentModule } from './standalone-component/standalone-component.module';
 
 @NgModule({
   declarations: [
@@ -94,7 +94,6 @@ import { Project1Module } from './project1/project1.module';
     ReversePipe,
     SortPipe,
     HttpBasicComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -102,6 +101,7 @@ import { Project1Module } from './project1/project1.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StandaloneComponentModule,
   ],
   providers: [
     {
