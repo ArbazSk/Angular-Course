@@ -1,0 +1,11 @@
+standalone is an alternative ways to manage a component without NgModule.
+you can import a Module directly inside a component by using imports array.
+Eg. 
+@Component({
+    standalone: true,
+    selector: "app-root",
+    imports: [CommonModule]
+})
+export class RootComponent{}
+
+With standalone component you don't need to manage a Module.
