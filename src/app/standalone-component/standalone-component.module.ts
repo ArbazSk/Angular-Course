@@ -7,9 +7,11 @@ import { DetailsComponent } from "./welcome/details/details.component";
 @NgModule({
     declarations: [
         StandaloneComponentComponent,
-        WelcomeComponent,
     ],
-    imports: [StandaloneComponentRouterModule, DetailsComponent]
+    imports: [
+        StandaloneComponentRouterModule,
+        WelcomeComponent
+    ]
 })
 export class StandaloneComponentModule {
 
